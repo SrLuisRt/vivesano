@@ -10,7 +10,7 @@ def iniciar_pago_transferencia(request, pedido_id):
     pedido.save()
     
     try:
-        grupo_atencion = Group.objects.get(name='Atencion al cliente')
+        grupo_atencion = Group.objects.get(name__iexact='Atencion al cliente')
         existe = Notificacion.objects.filter(pedido=pedido, mensaje__contains="TRANSFERENCIA").exists()
         if not existe:
             Notificacion.objects.create(

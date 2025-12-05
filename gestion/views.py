@@ -120,7 +120,7 @@ def reportar_faltante(request, pedido_id):
     pedido.save()
     
     try:
-        grupo_atencion = Group.objects.get(name='Atencion al cliente')
+        grupo_atencion = Group.objects.get(name__iexact='Atencion al cliente')
         Notificacion.objects.create(
             destinatario_grupo=grupo_atencion,
             pedido=pedido,
@@ -143,7 +143,7 @@ def historial_despachos(request):
 @staff_required
 def dashboard_atencion(request):
     try:
-        grupo_atencion = Group.objects.get(name='Atencion al cliente')
+        grupo_atencion = Group.objects.get(name__iexact='Atencion al cliente')
         notificaciones = Notificacion.objects.filter(
             destinatario_grupo=grupo_atencion
         ).exclude(estado__in=['LISTO', 'CANCELADO']).order_by('-fecha')

@@ -25,6 +25,32 @@
                             <p class="mb-1"><strong>Comuna:</strong> {{ pedido.cliente.comuna }}</p>
                         </div>
                     </div>
+                    
+                    <hr>
+                    <h6 class="text-muted mb-3">Productos Incluidos:</h6>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-sm table-striped align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th class="text-center">Cant.</th>
+                                    <th class="text-end">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for detalle in pedido.detalles.all %}
+                                <tr>
+                                    <td>{{ detalle.producto.nombre }}</td>
+                                    <td class="text-center">{{ detalle.cantidad }}</td>
+                                    <td class="text-end">
+                                        {% widthratio detalle.precio_unitario 1 detalle.cantidad as subtotal %}
+                                        {{ subtotal|clp }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                     <hr>
                     <div class="d-flex justify-content-between align-items-center">
                         <span class="fs-5">Total a Pagar:</span>

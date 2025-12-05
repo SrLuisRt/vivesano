@@ -24,9 +24,9 @@ def contadores_globales(request):
             ).count()
 
         # 2. Contador para Atención
-        if request.user.groups.filter(name='Atencion al cliente').exists() or request.user.is_superuser:
+        if request.user.groups.filter(name__iexact='Atencion al cliente').exists() or request.user.is_superuser:
             try:
-                grupo_atencion = Group.objects.get(name='Atencion al cliente')
+                grupo_atencion = Group.objects.get(name__iexact='Atencion al cliente')
                 data['cant_atencion'] = Notificacion.objects.filter(
                     destinatario_grupo=grupo_atencion
                 ).exclude(estado__in=['LISTO', 'CANCELADO']).count()

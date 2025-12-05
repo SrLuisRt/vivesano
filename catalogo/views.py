@@ -50,7 +50,7 @@ def reservar_producto(request, producto_id):
 
     # Notificar a Atención al Cliente
     try:
-        grupo_atencion = Group.objects.get(name='Atencion al cliente')
+        grupo_atencion = Group.objects.get(name__iexact='Atencion al cliente')
         Notificacion.objects.create(
             destinatario_grupo=grupo_atencion,
             pedido=pedido_reserva,
