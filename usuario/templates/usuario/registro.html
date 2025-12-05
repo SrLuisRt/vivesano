@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Crear Cuenta - Vive Sano{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5"> <div class="card shadow-lg mt-5 border-0 rounded-4"> <div class="card-header bg-success text-white text-center py-4 rounded-top-4">
+                <h3 class="mb-0 fw-bold"><i class="bi bi-person-plus"></i> Únete a Vive Sano</h3>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    {{ form|crispy }}
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-success btn-lg rounded-pill fw-bold shadow-sm">
+                            Registrarme Ahora
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3 bg-light rounded-bottom-4">
+                <small class="text-muted">¿Ya tienes cuenta? <a href="{% url 'usuario:login' %}" class="text-success fw-bold text-decoration-none">Inicia Sesión aquí</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+/* --- static/css/styles.css --- */
+
+/* 1. ESTILOS GENERALES */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. NAVEGACIÓN (DISEÑO ALTO CONTRASTE) */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Estilo base para todos los enlaces del menú (Estado Normal) */
+.navbar-nav .nav-link {
+    color: white !important;       /* Texto BLANCO siempre */
+    font-weight: 600;              /* Negrita suave */
+    padding: 8px 20px !important;  /* Más ancho para elegancia */
+    border-radius: 50px;           /* Bordes totalmente redondeados (Píldora) */
+    transition: all 0.3s ease;     /* Animación suave de color y fondo */
+    border: 1px solid transparent; /* Borde invisible para evitar saltos */
+}
+
+/* Efecto al pasar el mouse (Hover) - AQUÍ ESTÁ EL EFECTO INVERTIDO */
+.navbar-nav .nav-link:hover {
+    background-color: #ffffff !important; /* Fondo BLANCO sólido */
+    color: #000000 !important;            /* Texto NEGRO para máximo contraste */
+    transform: translateY(-3px);          /* Se levanta un poquito más */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra para que parezca flotar */
+}
+
+/* Efecto al hacer clic (Active) */
+.navbar-nav .nav-link:active {
+    transform: translateY(0);
+    background-color: #e0e0e0 !important; /* Gris clarito al presionar */
+    box-shadow: none;
+}
+
+/* 3. TARJETAS Y PRODUCTOS */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Ajuste para imágenes de productos (sin recortar) */
+.product-card .card-img-top {
+    height: 250px;
+    width: 100%;
+    object-fit: contain; 
+    padding: 15px;  
+    background-color: #fff;
+    border-radius: 12px 12px 0 0;
+}
+
+/* 4. COMPONENTES GENERALES */
+.btn {
+    border-radius: 50px; /* Botones estilo píldora */
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Carrusel principal */
+#heroCarousel .carousel-item {
+    min-height: 400px;
+}
+
+.home-banner {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* 5. FIX PARA BANDERAS/EMOJIS EN WINDOWS */
+
